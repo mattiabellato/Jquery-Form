@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Check</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #ececec, #f9f9f9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+
+      .dark-mode {
+        background-color: #121212;
+        color: white;
+      }
+
+      .login-container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 350px;
+        transition: box-shadow 0.3s ease, background-color 0.3s ease,
+          color 0.3s ease;
+      }
+
+      .dark-mode .login-container {
+        background-color: #1e1e1e;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .dark-mode h2 {
+        color: white;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+        text-align: left;
+      }
+
+      .dark-mode label {
+        color: #ccc;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease,
+          background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .input-field:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+        outline: none;
+      }
+
+      .dark-mode .input-field {
+        background-color: #333;
+        color: white;
+        border-color: #555;
+      }
+
+      .login-button,
+      .dark-mode-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .login-button:hover,
+      .dark-mode-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+
+      .dark-mode .login-button,
+      .dark-mode .dark-mode-button {
+        background-color: #444;
+      }
+
+      .dark-mode .login-button:hover,
+      .dark-mode .dark-mode-button:hover {
+        background-color: #666;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $("#loginButton").click(function () {
+          var username = $("#username").val();
+          var password = $("#password").val();
+
+          if (username === "rossi" && password === "1234") {
+            alert("Accesso eseguito");
+          } else {
+            alert("Accesso negato");
+          }
+        });
+
+        $("#darkModeButton").click(function () {
+          $("body").toggleClass("dark-mode");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="input-field"
+      /><br /><br />
+      <label for="password">Password:</label>
+      <input
+        type="text"
+        id="password"
+        name="password"
+        class="input-field"
+      /><br /><br />
+      <button id="loginButton" class="login-button">Login</button>
+      <button id="darkModeButton" class="dark-mode-button">
+        Attiva Modalità Scura
+      </button>
+    </div>
+  </body>
+</html>
